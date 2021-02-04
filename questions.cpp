@@ -33,6 +33,31 @@ void replace(string& s, int cnt) {
   }
 }
 
+//Q1.4
+bool purpalin(string& s) {
+  int len = s.length();
+  int temp;
+  bool result =  true;
+  if (len%2 == 0) {
+    for (int i = 0; i!= len; ++i) {
+      temp = count(s.begin(), s.end(), s[i]);
+      switch (temp%2){
+        case 1: result = false; break;
+      }
+    }
+  }
+  else{
+    int cnt = 0;
+    for (int i = 0; i!= len; ++i) {
+      temp = count(s.begin(), s.end(), s[i]);
+      if (temp%2 != 0) cnt += 1;
+    }
+    if (cnt >1) result = false;
+  }
+  return result;
+}
+
+
 
 //Q6.2
 string pick(double p) {
@@ -63,7 +88,7 @@ while (cin >> s1 >> s2 && (s1!= "end" || s2 != "end") {
   cout << permutation(s1, s2) <<endl;
 }
 
-*/
+
 
 //Q1.3
 string s;
@@ -72,6 +97,15 @@ while (getline (cin,s)) {
   replace(s, 10);
   cout << s << endl;
 }
+
+//Q1.4
+string s;
+while (cin >> s) cout << purpalin(s) <<endl;
+*/
+
+//Q1.5
+
+
 
 
 /*
