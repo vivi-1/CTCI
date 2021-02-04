@@ -58,6 +58,30 @@ bool purpalin(string& s) {
 }
 
 
+//Q1.5
+bool insert(const string &s1, const string &s2) {
+  int len1 = s1.length(), len2 = s2.length();
+  result = true;
+  if (s1 == s2) result = false;
+  else {
+    if ((len1-len2) == 1) ;
+    else if ((len2-len1) == 1) ;
+    else if (len1 == len2 || (len2-len1) != 1) result = false;
+    else result = false;
+  }
+
+}
+
+bool remove(const string &s1, const string &s2)
+
+bool replace(const string &s1, const string &s2)
+
+bool onechange(const string &s1, const string &s2) {
+  int len1 = s1.length(), len2 = s2.length();
+
+
+}
+
 
 //Q6.2
 string pick(double p) {
