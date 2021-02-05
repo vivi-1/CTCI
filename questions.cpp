@@ -59,28 +59,25 @@ bool purpalin(string& s) {
 
 
 //Q1.5
-bool insert(const string &s1, const string &s2) {
-  int len1 = s1.length(), len2 = s2.length();
-  result = true;
-  if (s1 == s2) result = false;
-  else {
-    if ((len1-len2) == 1) ;
-    else if ((len2-len1) == 1) ;
-    else if (len1 == len2 || (len2-len1) != 1) result = false;
-    else result = false;
-  }
-
-}
-
-bool remove(const string &s1, const string &s2)
-
-bool replace(const string &s1, const string &s2)
-
-bool onechange(const string &s1, const string &s2) {
-  int len1 = s1.length(), len2 = s2.length();
+//bool insert_remove(const string &s1, const string &s2) {
+//  int len1 = s1.length(), len2 = s2.length();
+//  bool result = true;
+//  if (s1 == s2 || len1 == len2 || (len2-len1) != 1 ) result = false; cout << "two strings are the same";
+//  else {
+//    if ((len1-len2) == 1){
+//      int cnt1, cnt2;
+//      for (int i = 0; i!= len1; ++i) {
+//        while (s1[i] == s2[i]) {
+//          cnt1 += 1;}
+//        }
+//    }
+//    else if ((len2-len1) == 1) ;
+//    else if ((len1-len2) == 1) result = false;
+//  }
+//}
 
 
-}
+
 
 
 //Q6.2
@@ -92,12 +89,12 @@ string pick(double p) {
 
 //Q12.1Last K Lines: Write a method to print the last Klines of an input file
 //using C++.
-string printK(int k, string s) {
-  int size_line = 0;
-  for (auto c : s) {
-    if(c == '\n') size_line += 1;
-  }
-}
+//string printK(int k, string s) {
+//  int size_line = 0;
+//  for (auto c : s) {
+//    if(c == '\n') size_line += 1;
+//  }
+//}
 
 
 int main() {
@@ -128,8 +125,11 @@ while (cin >> s) cout << purpalin(s) <<endl;
 */
 
 //Q1.5
-
-
+string s1, s2;
+while (cin >> s1 >> s2) {
+  cout << "substract: " << s1-s2 << endl;
+  cout << "addition" << s1+s2 << endl;
+}
 
 
 /*
