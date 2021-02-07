@@ -75,18 +75,20 @@ bool one_edit(string &s1, string &s2) {
       int cnt = 0;
       for (int i = 0; i != len2; ++i) {
         if (s1[i] != s2[i]) {
-          s2.append(i,s1[i]);
+          s1.erase(i, 1);
           cnt += 1;
+          break;
         }
       }
       if (cnt == 1 && s2 == s1) result = true;
     }
     else if (diff == -1) {
       int cnt = 0;
-      for (int i = 0; i != len1; ++i) {
+      for (int i = 0; i != len2; ++i) {
         if (s1[i] != s2[i]) {
-          s1.append(i,s2[i]);
+          s2.erase(i, 1);
           cnt += 1;
+          break;
         }
       }
       if (cnt == 1 && s2 == s1) result = true;
