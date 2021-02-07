@@ -59,23 +59,41 @@ bool purpalin(string& s) {
 
 
 //Q1.5
-//bool insert_remove(const string &s1, const string &s2) {
-//  int len1 = s1.length(), len2 = s2.length();
-//  bool result = true;
-//  if (s1 == s2 || len1 == len2 || (len2-len1) != 1 ) result = false; cout << "two strings are the same";
-//  else {
-//    if ((len1-len2) == 1){
-//      int cnt1, cnt2;
-//      for (int i = 0; i!= len1; ++i) {
-//        while (s1[i] == s2[i]) {
-//          cnt1 += 1;}
-//        }
-//    }
-//    else if ((len2-len1) == 1) ;
-//    else if ((len1-len2) == 1) result = false;
-//  }
-//}
-
+bool one_edit(string &s1, string &s2) {
+  int len1 = s1.length(), len2 = s2.length(), diff = len1 - len2;
+  bool result = false;
+  if (s1 == s2) result = true;
+  else {
+    if (diff == 0) {
+      int cnt = 0;
+      for (int i = 0; i != len1; ++i) {
+        if (s1[i] == s2[i]) cnt += 1;
+      }
+      if (cnt == len1 - 1) result = true;
+    }
+    else if (diff == 1) {
+      int cnt = 0;
+      for (int i = 0; i != len2; ++i) {
+        if (s1[i] != s2[i]) {
+          s2.append(i,s1[i]);
+          cnt += 1;
+        }
+      }
+      if (cnt == 1 && s2 == s1) result = true;
+    }
+    else if (diff == -1) {
+      int cnt = 0;
+      for (int i = 0; i != len1; ++i) {
+        if (s1[i] != s2[i]) {
+          s1.append(i,s2[i]);
+          cnt += 1;
+        }
+      }
+      if (cnt == 1 && s2 == s1) result = true;
+    }
+  }
+  return result;
+}
 
 
 
@@ -127,8 +145,7 @@ while (cin >> s) cout << purpalin(s) <<endl;
 //Q1.5
 string s1, s2;
 while (cin >> s1 >> s2) {
-  cout << "substract: " << s1-s2 << endl;
-  cout << "addition" << s1+s2 << endl;
+  cout << one_edit(s1, s2) << endl;
 }
 
 
