@@ -73,7 +73,7 @@ bool one_edit(string &s1, string &s2) {
     }
     else if (diff == 1) {
       int cnt = 0;
-      for (int i = 0; i != len2; ++i) {
+      for (int i = 0; i != len1; ++i) {
         if (s1[i] != s2[i]) {
           s1.erase(i, 1);
           cnt += 1;
