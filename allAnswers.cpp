@@ -233,13 +233,6 @@ transpose(v, 3, 3);
 
 //Q1.8
 vector<vector<int>> v = {{0,1,2,3}, {2,4,5,7}, {4,6,3,0}};
-
-//for (int i = 0; i != 4; ++i) {
-//  for (int j = 0; j != 4; ++j) {cout << v[i][j] << " ";}
-//  cout << endl;
-//}
-//cout << "\n\n\n";
-
 set_to_zero(v);
 
 

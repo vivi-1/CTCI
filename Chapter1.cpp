@@ -1,3 +1,8 @@
+#include<iostream>
+#include<vector>
+using namespace std;
+
+
 //Q1.1
 bool unique_s(const string &s) {
   bool result = true;
