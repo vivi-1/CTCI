@@ -116,6 +116,22 @@ string str_comp(const string& s) {
 }
 
 
+//Q1.7
+void transpose(vector<vector<int>> v, const int r, const int c) {
+  vector<vector<int>> result(r,vector<int> (c,1));
+  for (int i = 0; i != r; ++i) {
+    for (int j = 0; j != c; ++j) {
+      result[i][j] = v[r-1-j][i];
+      cout << result[i][j] << " ";
+    }
+    cout << endl;
+  }
+}
+
+
+//Q1.8
+
+
 //Q6.2
 string pick(double p) {
   if (3*p*p - 2*p*p*p - p <0) return "Game 1";
@@ -165,15 +181,21 @@ string s1, s2;
 while (cin >> s1 >> s2) {
   cout << one_edit(s1, s2) << endl;
 }
-*/
+
 
 //Q1.6
 
 string s1;
-while (cin >> s1) {
-  cout << str_comp(s1) << endl;
+while (cin >> s1) cout << str_comp(s1) << endl;
 
-}
+
+//Q1.7
+vector<vector<int>> v = { {1,2,3} , {4,5,6} , {7,8,9}};
+transpose(v, 3, 3);
+*/
+
+//Q1.8
+
 
 /*
 //Q6.1
