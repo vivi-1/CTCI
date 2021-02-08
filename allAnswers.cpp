@@ -133,10 +133,40 @@ void transpose(vector<vector<int>> v, const int r, const int c) {
 void set_to_zero(vector<vector<int>> v) {
   int r = static_cast<int> (v.size());
   int c = static_cast<int> (v[0].size());
+
+  vector<int> row, col;
+  cout << "the original vector is: " << endl;
   for (int i = 0; i != r; ++i) {
-    for (int j = 0; j != r; ++j)
+    for (int j = 0; j != c; ++j) {
+      cout << v[i][j] << " ";
+      if (v[i][j] == 0) {row.push_back(i); col.push_back(j);}
+    }
+    cout << "\n";
   }
 
+  sort(row.begin(), row.end());
+  row.erase(unique(row.begin(), row.end() ), row.end());
+
+  sort(col.begin(), col.end());
+  col.erase(unique(col.begin(), col.end() ), col.end());
+
+  for (auto i : row){
+    cout << i << endl;
+      for (int n = 0; n != c; ++n) v[i][n] = 0;
+    }
+
+  for (auto j : col) {
+    for (int n = 0; n != r; ++n) v[n][j] = 0;
+  }
+
+  cout << "the transformed vector is: \n";
+
+  for (int i = 0; i != r; ++i) {
+    for (int j = 0; j != c; ++j) {
+      cout << v[i][j] << " ";
+    }
+    cout << endl;
+  }
 }
 
 //Q6.2
@@ -202,6 +232,15 @@ transpose(v, 3, 3);
 */
 
 //Q1.8
+vector<vector<int>> v = {{0,1,2,3}, {2,4,5,7}, {4,6,3,0}};
+
+//for (int i = 0; i != 4; ++i) {
+//  for (int j = 0; j != 4; ++j) {cout << v[i][j] << " ";}
+//  cout << endl;
+//}
+//cout << "\n\n\n";
+
+set_to_zero(v);
 
 
 /*
