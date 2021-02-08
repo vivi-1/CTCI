@@ -1,8 +1,3 @@
-#include<iostream>
-#include<vector>
-using namespace std;
-
-
 //Q1.1
 bool unique_s(const string &s) {
   bool result = true;
@@ -97,25 +92,26 @@ bool one_edit(string &s1, string &s2) {
   return result;
 }
 
-
-
-
-//Q6.2
-string pick(double p) {
-  if (3*p*p - 2*p*p*p - p <0) return "Game 1";
-  else if (3*p*p - 2*p*p*p - p > 0) return "Game 2";
-  else return "Game1 and Game2 have the same probability\n";
+//Q1.6
+string str_comp(const string& s) {
+  string result;
+  int cnt = 1;
+  int i = 0;
+  while(i != s.length()) {
+    if (s[i] == s[i+1]) cnt += 1;
+    else {
+      result.push_back(s[i]);
+      result += to_string(cnt);
+      cnt = 1;
+    }
+    ++i;
+  }
+  if (result.length() <= s.length()) return result;
+  else return s;
 }
 
-//Q12.1Last K Lines: Write a method to print the last Klines of an input file
-//using C++.
-//string printK(int k, string s) {
-//  int size_line = 0;
-//  for (auto c : s) {
-//    if(c == '\n') size_line += 1;
-//  }
-//}
 
+//Q1.7
 
 int main() {
 //Q1.1
@@ -142,7 +138,7 @@ while (getline (cin,s)) {
 //Q1.4
 string s;
 while (cin >> s) cout << purpalin(s) <<endl;
-*/
+
 
 //Q1.5
 string s1, s2;
@@ -151,33 +147,15 @@ while (cin >> s1 >> s2) {
 }
 
 
-/*
-//Q6.1
-vector<vector <double>> vlight(19, {1,1,1,1,1});
-vector<double> vheavy{1.1, 1.1, 1.1, 1.1, 1.1};
-vlight.push_back(vheavy);
-double sum = 0;
-for (int i = 0; i != 20; ++i) {
-  sum += (vlight[i][0]*(i+1));
-  cout << vlight[i][0]<< endl;
-}
-cout << sum<< endl;
-int result = (sum - 210)/0.1;
-cout << "The heavy jar is the " << result << "th\n";
+//Q1.6
 
-
-//Q6.2
-
-double p = 0.3;
-cout << pick(p) << endl;
-
+string s1;
+while (cin >> s1) cout << str_comp(s1) << endl;
 */
 
-//Q12.Last K Lines: Write a method to print the last Klines of an input file
-//using C++.
 
 
 
 
-
+return 0;
 }
