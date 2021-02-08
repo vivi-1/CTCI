@@ -130,7 +130,14 @@ void transpose(vector<vector<int>> v, const int r, const int c) {
 
 
 //Q1.8
+void set_to_zero(vector<vector<int>> v) {
+  int r = static_cast<int> (v.size());
+  int c = static_cast<int> (v[0].size());
+  for (int i = 0; i != r; ++i) {
+    for (int j = 0; j != r; ++j)
+  }
 
+}
 
 //Q6.2
 string pick(double p) {
