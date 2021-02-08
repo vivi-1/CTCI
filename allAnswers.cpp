@@ -245,12 +245,12 @@ while (cin >> s1) cout << str_comp(s1) << endl;
 //Q1.7
 vector<vector<int>> v = { {1,2,3} , {4,5,6} , {7,8,9}};
 transpose(v, 3, 3);
-*/
+
 
 //Q1.8
 vector<vector<int>> v = {{0,1,2,3}, {2,4,5,7}, {4,6,3,0}};
 set_to_zero(v);
-
+*/
 
 /*
 //Q6.1
