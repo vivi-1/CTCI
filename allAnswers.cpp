@@ -169,15 +169,16 @@ void set_to_zero(vector<vector<int>> v) {
   }
 }
 
-//Q1.9String Rotation: Assume you have a method isSubstring which checks if one word
+//Q1.9 String Rotation: Assume you have a method isSubstring which checks if one word
 //is a substring of another. Given two strings, s1 and s2, write code to check
 //if s2 is a rotation of s1 using only one call to isSubstring
 //(e.g., waterbottle is a rotation of erbottlewat).
-bool is_rotation(string &s1, string &s2) {
-  int len1 = s1.length(), len2 = s2.length();
-  if (len1 != len2) return false;
+bool is_rotation(const string &s1, const string &s2) {
+  if (s1.length() != s2.length()) return false;
   else {
-
+    string s = s1 + s1;
+    if (isSubstring(s,s2)) return true;
+    else return false;
     }
   }
 }
