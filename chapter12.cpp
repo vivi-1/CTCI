@@ -20,15 +20,45 @@ void PrintLK(char * filename, const int k) {
   }
 }
 
+//Q12.2
+
+void reverse(char * str) {
+  int size = 0;
+  while ((*str)!= '\0') {
+    ++size;
+    ++str;
+  }
+  str -= 1;
+  char c[size+1];
+  for (int i=0; i != size && (*str)!= '\0' && str != nullptr; --str, ++i) {
+    c[i] = *str;
+  }
+  str += 1;
+  c[size+1] = '\0';
+  for (int i = 0 ; i != size; ++str, ++i){
+    *str = c[i];
+  }
+}
 
 int main() {
 //Q12.1 Last K Lines: Write a method to print the last Klines of an input file
 //using C++.
 
 
+//Q12.2 implement a function void reverse(char * str) in C or C++ which reverses
+//a null-terminated string
+char cstring1[] = {"wei"};
+char cstring2[4] = {'w', 'e', 'i'};
+char cstring3[4] = {"wei"};
+char cstring4[4] = {'w', 'e', 'i', '\0'};
 
-//Q12.2
+reverse(cstring1);
+reverse(cstring2);
+reverse(cstring3);
+reverse(cstring4);
+cout << cstring1 << " " << cstring2  << " " << cstring3  << " " << cstring4 << endl;
 
+//Q12.3
 
 
   return 0;
