@@ -41,9 +41,10 @@ void reverse(char * str) {
 }
 
 int main() {
+
+/*
 //Q12.1 Last K Lines: Write a method to print the last Klines of an input file
 //using C++.
-
 
 //Q12.2 implement a function void reverse(char * str) in C or C++ which reverses
 //a null-terminated string
@@ -58,7 +59,14 @@ reverse(cstring3);
 reverse(cstring4);
 cout << cstring1 << " " << cstring2  << " " << cstring3  << " " << cstring4 << endl;
 
-//Q12.3
+*/
+
+//Q12.3 Hash Table vs STL Map: Compare and contrast a hash table and an STL
+//map. How is a hash table implemented? If the number of inputs is small, which
+//data structure options can be used instead of a hash table?
+
+
+
 
 
   return 0;
