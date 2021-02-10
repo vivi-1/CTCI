@@ -89,14 +89,48 @@ cout << pick(p) << endl;
 //Q6.7 The Apocalypse: In the new post-apocalyptic world, the world queen is
 //desperately concerned about the birth rate. Therefore, she decrees that all
 //families should ensure that they have one girl or else they face massive fines.
-// If all families abide by this policy-that is, they have continue to have
-//children until they have one girl, at which point they immediately stop-what
+//If all families abide by this policy, that is, they have continue to have
+//children until they have one girl, at which point they immediately stop, what
 //will the gender ratio of the new generation be? (Assume that the odds of
 //someone having a boy or a girl on any given pregnancy is equal.) Solve this
 //out logically and then write a computer simulation of it.
 
+//Assume that the 'n'th time a person has the 1st girl is T.
+//P is the probability of 'n'th time a person has the 1st girl (P)
+//GP is girl's propotion when the 'n'th time a person has the 1st girl
+//T=1 P=1/2 GP=1
+//T=2 P=(1/2)^2 GP=1/2
+//T=3 P=(1/2)^3 GP=1/3
+//...
+//T=n P=(1/2)^n GP=1/n
+// The overall girl's porpotion would be:
+//1*(1/2) + (1/2)*(1/2)^2 + (1/3)*(1/2)^3 + ... +(1/n)*(1/2)^n
 
 
+//Q6.8 The Egg Drop Problem: There is a building of 100 floors. If an egg drops
+//from the Nth floor or above, it will break. If it's dropped from any floor
+//below, it will not break. You're given two eggs. Find N, while minimizing the
+//number of drops for the worst case.
+
+
+
+
+//Q6.9 100 Lockers: There are 100 closed lockers in a hallway. A man begins by
+//opening all 100 lockers. Next, he closes every second locker.Then, on his
+//third pass, he toggles every third locker (closes it if it is open or opens
+//it if it is closed). This process continues for 100 passes, such that on each
+//pass i, the man toggles every i th locker. After his 100th pass in the hallway,
+// in which he toggles only locker #100, how many lockers are open?
+
+
+//Q6.10 Poison: You have 1000 bottles of soda, and exactly one is poisoned. You
+//have latest strips which can be used to detect poison. A single drop of poison
+// will turn the test strip positive permanently. You can put any number of
+//drops on a test strip at once and you can reuse a test strip as many times as
+//you'd like (as long as the results are negative). However, you can only run
+//tests once per day and it takes seven days to return a result. How would you
+//figure out the poisoned bottle in as few days as possible?
+//Follow up: Write code to simulate your approach.
 
 
 
