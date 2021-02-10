@@ -105,6 +105,7 @@ cout << pick(p) << endl;
 //T=n P=(1/2)^n GP=1/n
 // The overall girl's porpotion would be:
 //1*(1/2) + (1/2)*(1/2)^2 + (1/3)*(1/2)^3 + ... +(1/n)*(1/2)^n
+//=
 
 
 //Q6.8 The Egg Drop Problem: There is a building of 100 floors. If an egg drops
