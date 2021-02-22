@@ -6,14 +6,18 @@ using namespace std;
 // large enough buffer at the end to hold B. Write a method to merge B into A in
 // sorted order.
 //BigO notation: Best case O(nlogN) Average case O(nlogN) Worst case O(N^2)
-vector<int> SortedMerge(vetor<int> v1, vector<int> v2) {
+vector<int> SortedMerge(vector<int> v1, vector<int> v2) {
   v1.insert(v1.end(), v2.begin(), v2.end());
-  sort(v1.begin(), v.end());
+  sort(v1.begin(), v1.end());
+  return v1;
 }
 
 int main(){
-
-
+//Q10.1
+vector<int> v1 = {1, 2, 3, 4, 5, 6};
+vector<int> v2 = {4, 5, 6, 7, 8, 9};
+v1 = SortedMerge(v1, v2);
+for(int i = 0; i!= v1.size(); i++) cout << v1[i] << endl;
 
   return 0;
 }
