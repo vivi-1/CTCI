@@ -14,14 +14,7 @@ vector<int> SortedMerge(vector<int> v1, vector<int> v2) {
 
 //Q10.2 Group Anagrams: Write a method to sort an array of strings so that all
 //the anagrams are next to each other.
-class HashTable{
-private:
-  vector<string> *table;
-  int size_of_vector;
-  int getHash(string key) {
-    return 
-  }
-}
+map<int, vector<int>>
 
 
 vector<int> SortAnagrams(vector<string> v) {
