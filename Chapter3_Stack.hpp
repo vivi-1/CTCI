@@ -19,13 +19,17 @@ class stack {
     bool is_full() const;//const function:reading of a class variables is ok inside of the function but writing inside of this function will cause an error
     int capacity() const;
     int size() const;
+    int min_element() const;
 
     friend ostream& operator <<(ostream&, const stack&);
   private:
     int* arr;
     int top;
     int maxsize;
+    int min;
+    vector<int> min_elements;
 };
+
 stack::stack(int size) {
   arr = new int[size];
   maxsize = size;
@@ -55,8 +59,16 @@ void stack::push(int item) {
     cout << "Stack is already full, no space for new data\n";
     exit(EXIT_FAILURE);
   }
+  if (is_empty()) {
+    min = item;
+    min_elements.push_back(item);
+  }
   top += 1;
   arr[top] = item;
+  if (item < min) {
+    min = item;
+    min_elements.push_back(item);
+  }
 }
 
 int stack::pop() {
@@ -67,6 +79,9 @@ int stack::pop() {
   cout << "popping" << peek() << endl;
   top -= 1;
   return arr[top];
+  if (arr[top] == min_elements[min_elements.size()-1]) {
+    min_elements.pop_back();
+  }
 }
 
 bool stack::is_empty() const {
@@ -85,5 +100,9 @@ int stack::size() const {
   return top + 1;
 }
 
+int stack::min_element() const{
+  int len = min_elements.size();
+  return min_elements[len-1];
+}
 
 #endif //  CHAPTER3_STACK__HPP
