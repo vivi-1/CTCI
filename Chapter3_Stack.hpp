@@ -108,4 +108,8 @@ int stack::min_element() const{
   return min_elements[len-1];
 }
 
+void stack::cleanContents() {
+  while (!is_empty()) pop();
+}
+
 #endif //  CHAPTER3_STACK__HPP
