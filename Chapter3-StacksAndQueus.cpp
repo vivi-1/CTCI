@@ -2,7 +2,7 @@
 #include<vector>
 using namespace std;
 #include "Chapter3_stack.hpp"
-
+#include "Chapter3_setOfStacks.hpp"
 int main(){
 //Q3.1 Three in One: Describe how you could use a single array to implement
 //three stacks.
@@ -21,6 +21,7 @@ int main(){
 //Q3.2 Stack Min: How would you design a stack which, in addition to push and
 //pop, has a function min which returns the minimum element? Push, pop and min
 //should all operate in 0(1) time.
+//Please refer to Chapter3_stack.cpp
 stack s1(10);
 if (s1.is_empty()) cout << "Empty stack\n";
 s1.push(8);
