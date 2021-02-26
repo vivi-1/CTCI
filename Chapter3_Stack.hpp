@@ -20,6 +20,7 @@ class stack {
     int capacity() const;
     int size() const;
     int min_element() const;
+    void cleanContents();
 
     friend ostream& operator <<(ostream&, const stack&);
   private:
