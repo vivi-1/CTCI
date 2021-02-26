@@ -3,6 +3,7 @@
 using namespace std;
 #include "Chapter3_Stack.hpp"
 #include "Chapter3_setOfStacks.hpp"
+#include "Chapter3_MyQueue.hpp"
 
 int main(){
 /*
@@ -91,6 +92,8 @@ cout << s2.peek() << " " << s2.stackIndex() << endl;
 
 //Q3.4 Queue via Stacks: Implement a MyQueue class which implements a queue
 //using two stacks.
+
+
 
 
 //Q3.5 Sort Stack: Write a program to sort a stack such that the smallest items

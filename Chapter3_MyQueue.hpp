@@ -18,8 +18,8 @@ class MyQueue {
 
   private:
     int maxSize;
-    stack sPush(60);
-    stack sPop(60);
+    stack sPush;
+    stack sPop;
 };
 
 
