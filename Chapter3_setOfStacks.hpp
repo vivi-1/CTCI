@@ -32,6 +32,8 @@ setOfStacks::setOfStacks(int threshold) {
   indexS = 0;
 }
 
+
+
 int setOfStacks::peek() {
   if(is_empty()) {
     cout << "Stack is empty, no element to be peeked\n";
