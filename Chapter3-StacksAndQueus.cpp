@@ -21,8 +21,6 @@ int main(){
 //Q3.2 Stack Min: How would you design a stack which, in addition to push and
 //pop, has a function min which returns the minimum element? Push, pop and min
 //should all operate in 0(1) time.
-
-
 stack s1(10);
 if (s1.is_empty()) cout << "Empty stack\n";
 s1.push(8);
@@ -52,6 +50,7 @@ s1.push(-1);
 if (s1.is_full()) cout << "full\n";
 cout << "size:" << s1.size() << ", capacity:" << s1.capacity() << " ,min value: "
       << s1.min_element() <<endl;
+s1.~stack ();
 
 //Q3.3 Stack of Plates: Imagine a (literal) stack of plates. If the stack gets
 //too high, it might topple. Therefore, in real life, we would likely start a
