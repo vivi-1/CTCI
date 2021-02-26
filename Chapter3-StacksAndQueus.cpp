@@ -1,22 +1,57 @@
 #include<iostream>
 #include<vector>
 using namespace std;
-
+#include "Chapter3_stack.hpp"
 
 int main(){
 //Q3.1 Three in One: Describe how you could use a single array to implement
 //three stacks.
 //Stack a,b and c
+//Fixed space for each stack:
 //Array index:   0      1      2      3    4     5     6     7     8   ...m
 //Stack element: a[0]  b[0]   c[0]  a[1]  b[1]  c[1]  a[2]  b[2]  c[2] ...a[n]
 //Stack "a" a[i] takes up position 0+3i in the array
 //Stack "b" b[i] takes up position 1+3i in the array
 //Stack "c" c[i] takes up position 2+3i in the array
 
+//Flexible spaces for each stack:
+//
+
+
 //Q3.2 Stack Min: How would you design a stack which, in addition to push and
 //pop, has a function min which returns the minimum element? Push, pop and min
 //should all operate in 0(1) time.
 
+
+stack s1(10);
+if (s1.is_empty()) cout << "Empty stack\n";
+s1.push(8);
+s1.push(5);
+s1.push(10);
+s1.push(0);
+s1.push(4);
+if (!s1.is_full()) cout << "Not full\n";
+cout << "size:" << s1.size() << ", capacity:" << s1.capacity() << " ,min value: "
+       << s1.min_element() <<endl;
+s1.pop();
+s1.pop();
+s1.pop();
+
+cout << "size:" << s1.size() << ", capacity:" << s1.capacity() << " ,min value: "
+      << s1.min_element() <<endl;
+
+s1.push(0);
+s1.push(7);
+s1.push(9);
+s1.push(11);
+s1.push(2);
+s1.push(3);
+s1.push(6);
+s1.push(-1);
+//s1.push(32);
+if (s1.is_full()) cout << "full\n";
+cout << "size:" << s1.size() << ", capacity:" << s1.capacity() << " ,min value: "
+      << s1.min_element() <<endl;
 
 //Q3.3 Stack of Plates: Imagine a (literal) stack of plates. If the stack gets
 //too high, it might topple. Therefore, in real life, we would likely start a

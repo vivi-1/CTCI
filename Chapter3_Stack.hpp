@@ -59,15 +59,17 @@ void stack::push(int item) {
     cout << "Stack is already full, no space for new data\n";
     exit(EXIT_FAILURE);
   }
-  if (is_empty()) {
-    min = item;
-    min_elements.push_back(item);
-  }
-  top += 1;
-  arr[top] = item;
-  if (item < min) {
-    min = item;
-    min_elements.push_back(item);
+  else{
+    if (is_empty()) {
+      min = item;
+      min_elements.push_back(item);
+    }
+    top += 1;
+    arr[top] = item;
+    if (item <= min) {
+      min = item;
+      min_elements.push_back(item);
+    }
   }
 }
 
@@ -77,11 +79,11 @@ int stack::pop() {
     exit(EXIT_FAILURE);
   }
   cout << "popping" << peek() << endl;
-  top -= 1;
-  return arr[top];
   if (arr[top] == min_elements[min_elements.size()-1]) {
     min_elements.pop_back();
+    cout << arr[top]<< min_elements[min_elements.size()-1] << endl;
   }
+  return arr[top--];
 }
 
 bool stack::is_empty() const {
