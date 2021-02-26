@@ -55,7 +55,6 @@ cout << "size:" << s1.size() << ", capacity:" << s1.capacity() << " ,min value: 
       << s1.min_element() <<endl;
 s1.~stack ();
 
-*/
 
 //Q3.3 Stack of Plates: Imagine a (literal) stack of plates. If the stack gets
 //too high, it might topple. Therefore, in real life, we would likely start a
@@ -88,6 +87,7 @@ s2.push(6);
 s2.push(7);
 cout << s2.peek() << " " << s2.stackIndex() << endl;
 
+*/
 
 //Q3.4 Queue via Stacks: Implement a MyQueue class which implements a queue
 //using two stacks.
