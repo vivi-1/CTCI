@@ -20,7 +20,6 @@ class setOfStacks {
     vector<stack> vecS;
     int maxsize;
     int indexS;
-
 };
 
 setOfStacks::setOfStacks(int threshold) {
