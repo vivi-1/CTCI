@@ -1,9 +1,11 @@
 #include<iostream>
 #include<vector>
 using namespace std;
-#include "Chapter3_stack.hpp"
+#include "Chapter3_Stack.hpp"
 #include "Chapter3_setOfStacks.hpp"
+
 int main(){
+/*
 //Q3.1 Three in One: Describe how you could use a single array to implement
 //three stacks.
 //Stack a,b and c
@@ -53,6 +55,8 @@ cout << "size:" << s1.size() << ", capacity:" << s1.capacity() << " ,min value: 
       << s1.min_element() <<endl;
 s1.~stack ();
 
+*/
+
 //Q3.3 Stack of Plates: Imagine a (literal) stack of plates. If the stack gets
 //too high, it might topple. Therefore, in real life, we would likely start a
 //new stack when the previous stack exceeds some threshold. Implement a data
@@ -64,7 +68,25 @@ s1.~stack ();
 //FOLLOW UP
 //Implement a function popAt(int index)which performs a pop operation on a
 //specific sub-stack.
-
+setOfStacks s2(4);
+cout << s2.threshold() << endl;
+if (s2.is_empty()) cout << "empty\n";
+s2.push(1);
+cout << s2.peek() << endl;
+s2.push(2);
+cout << s2.peek() << endl;
+s2.push(3);
+cout << s2.peek() << endl;
+if (!s2.currentS().is_full()) cout << s2.stackIndex() << "not full yet\n";
+s2.pop();
+cout << s2.peek() << endl;
+s2.push(4);
+s2.push(5);
+if (s2.currentS().is_full()) cout << s2.stackIndex() << "full\n";
+cout << s2.stackIndex() << endl;
+s2.push(6);
+s2.push(7);
+cout << s2.peek() << " " << s2.stackIndex() << endl;
 
 
 //Q3.4 Queue via Stacks: Implement a MyQueue class which implements a queue

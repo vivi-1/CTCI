@@ -15,6 +15,9 @@ class setOfStacks {
     void push(int);
     int pop();
     int popAt(int);
+    int threshold() { return maxsize;}
+    int stackIndex() { return indexS;}
+    stack currentS() {return vecS[indexS];}
 
   private:
     vector<stack> vecS;
@@ -27,6 +30,14 @@ setOfStacks::setOfStacks(int threshold) {
   stack s (maxsize);
   vecS.push_back(s);
   indexS = 0;
+}
+
+int setOfStacks::peek() {
+  if(is_empty()) {
+    cout << "Stack is empty, no element to be peeked\n";
+    exit(EXIT_FAILURE);
+  }
+  return vecS[indexS].peek();
 }
 
 bool setOfStacks::is_empty() const {
