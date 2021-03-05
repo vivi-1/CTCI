@@ -35,7 +35,10 @@ int MyQueue::qPeek() {
 }
 
 void MyQueue::qPush(int item) {
+  if (sPush.is_empty()) {
+    while(!sPop.is_empty()) sPush.push(sPop.pop());
   sPush.push(item);
+  }
   sPop.cleanContents();
   while (!sPush.is_empty()) {
     sPop.push(sPush.pop());
@@ -44,10 +47,11 @@ void MyQueue::qPush(int item) {
 
 int MyQueue::qPop(){
   if (sPop.is_empty()){
-    cout << "Queue is empty, no value to be popped\n";
-    exit(EXIT_FAILURE);
+    while(!sPush.is_empty()) sPop.push(sPush.pop());
   }
-  return sPop.pop();
+  sPush.cleanContents();
+  sPop.pop();
+  while (!sPop.is_empty()) sPush.push(sPop.pop());
 }
 
 

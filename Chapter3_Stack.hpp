@@ -18,7 +18,6 @@ class stack {
     void push(int);
     int pop();
 
-
     bool is_empty() const; //const at the end means the function cannot change
     //object members
     bool is_full() const;//const function:reading of a class variables is ok

@@ -1,27 +1,31 @@
-#ifndef CHAPTER3_QUEUE_HPP
-#define CHAPTER3_QUEUE_HPP
-
 #include<iostream>
 #include<vector>
+#include <string>
 using namespace std;
-
+class Cat;
+class Dog;
 class Queue {
 public:
+  friend class Cat;
+  friend class Dog;
   //constructors:
   Queue() = default;
-  Queue(int);
+  Queue(string s) : ID(s) { }
   Queue(const Queue &);
   ~Queue();
   //member functions
-  string enqueue();
-  string dequeueAny();
-  string dequeueDog();
-  string dequeueCat();
+  string name() {return ID;}
+  string Enqueue();
+  string Dequeue();
+  string qDequeueCat(Cat);
+  string EnqueueCat(Cat);
+  string EnqueueDog(Dog);
+  string DequeueDog(Dog);
 
 private:
   string ID;
-  string type;
+  unsigned int age;
+};
 
-}
-
-#endif //CHAPTER3_QUEUE_HPP
+class Cat {};
+class Dog {};
