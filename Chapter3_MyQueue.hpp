@@ -3,7 +3,7 @@
 
 #include<iostream>
 #include<vector>
-#include "Chapter3_Stack.hpp"
+#include"Chapter3_Stack.hpp"
 using namespace std;
 
 class MyQueue {
@@ -12,9 +12,9 @@ class MyQueue {
     ~MyQueue();
 
 
-    int peek();
-    void push();
-    int pop();
+    int qPeek();
+    void qPush(int);
+    int qPop();
 
   private:
     int maxSize;
@@ -30,17 +30,11 @@ MyQueue::MyQueue (int threshold){
 
 }
 
-
-
-int MyQueue::peek() {
-  if (sPop.is_empty()){
-    cout << "Queue is empty, no value to be popped\n";
-    exit(EXIT_FAILURE);
-  }
+int MyQueue::qPeek() {
   return sPop.peek();
 }
 
-void MyQueue::push(int item) {
+void MyQueue::qPush(int item) {
   sPush.push(item);
   sPop.cleanContents();
   while (!sPush.is_empty()) {
@@ -48,7 +42,7 @@ void MyQueue::push(int item) {
   }
 }
 
-int MyQueue::pop(){
+int MyQueue::qPop(){
   if (sPop.is_empty()){
     cout << "Queue is empty, no value to be popped\n";
     exit(EXIT_FAILURE);

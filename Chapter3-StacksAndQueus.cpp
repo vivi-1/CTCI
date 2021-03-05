@@ -88,13 +88,11 @@ s2.push(6);
 s2.push(7);
 cout << s2.peek() << " " << s2.stackIndex() << endl;
 
-*/
-
 //Q3.4 Queue via Stacks: Implement a MyQueue class which implements a queue
 //using two stacks.
 
-
-
+//Please check my Chapter3_MyQueue.hpp
+*/
 
 //Q3.5 Sort Stack: Write a program to sort a stack such that the smallest items
 //are on the top. You can use an additional temporary stack, but you may not

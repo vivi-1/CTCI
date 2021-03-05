@@ -4,8 +4,12 @@
 #include<iostream>
 #include<vector>
 using namespace std;
+
+class MyQueue;
 class stack {
   public:
+    friend class MyQueue;
+    stack() = default;
     stack(int);
     stack(const stack&);
     ~stack();
@@ -15,8 +19,10 @@ class stack {
     int pop();
 
 
-    bool is_empty() const; //const at the end means the function cannot change object members
-    bool is_full() const;//const function:reading of a class variables is ok inside of the function but writing inside of this function will cause an error
+    bool is_empty() const; //const at the end means the function cannot change
+    //object members
+    bool is_full() const;//const function:reading of a class variables is ok
+    //inside of the function but writing inside of this function will cause an error
     int capacity() const;
     int size() const;
     int min_element() const;
