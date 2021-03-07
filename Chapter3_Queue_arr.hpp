@@ -3,7 +3,6 @@
 #include <string>
 using namespace std;
 
-
 class Queue {
 public:
   friend class Animal;
@@ -20,7 +19,8 @@ public:
   int capacity() const {return maxsize;}
   int size() const {return bottom + 1;};
   void Enqueue(string);
-  string Dequeue(string);
+  string Dequeue();
+  void print() const;
 
 private:
   string * arr;
@@ -60,15 +60,20 @@ void Queue::Enqueue(string item) {
   bottom++;
 }
 
-string Queue::Dequeue(string item) {
+string Queue::Dequeue() {
   if (is_empty()) {
     cerr << "Queue is empty, nothing to dequeue\n";
     exit(EXIT_FAILURE);
   }
-  cout << "dequeueing " << arr[0];
+  cout << "dequeueing " << arr[0] << endl;
   for (int i = 1; i <= bottom ; ++i){
     arr[i-1] = arr[i];
   }
   bottom--;
   return arr[0];
+}
+
+void Queue::print() const{
+  for (int i = 0; i <= bottom; ++i) cout << arr[i] << " ";
+  cout << endl;
 }

@@ -46,12 +46,14 @@ void MyQueue::qPush(int item) {
 }
 
 int MyQueue::qPop(){
+  int result;
   if (sPop.is_empty()){
     while(!sPush.is_empty()) sPop.push(sPush.pop());
   }
   sPush.cleanContents();
-  sPop.pop();
+  result = sPop.pop();
   while (!sPop.is_empty()) sPush.push(sPop.pop());
+  return result;
 }
 
 

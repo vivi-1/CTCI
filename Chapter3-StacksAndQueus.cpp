@@ -4,6 +4,7 @@ using namespace std;
 #include "Chapter3_Stack.hpp"
 #include "Chapter3_setOfStacks.hpp"
 #include "Chapter3_MyQueue.hpp"
+#include "Chapter3_Queue_arr.hpp"
 
 int main(){
 /*
@@ -107,8 +108,7 @@ cout << s2.peek() << " " << s2.stackIndex() << endl;
 //oldest animal of that type). They cannot select which specific animal they
 //would like. Create the data structures to maintain this system and implement
 //operations such as enqueue, dequeueAny, dequeueDog, and dequeueCat. You may
-//use the built-in Linked L is t data structure.
-
+//use the built-in LinkedList data structure.
 
 
   return 0;
