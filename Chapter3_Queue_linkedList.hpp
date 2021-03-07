@@ -17,8 +17,9 @@ public:
   qNode *front, *rear;
   llQueue() {front = rear = NULL;}
   void Enqueue(string);
-  void Dequeue();
+  string Dequeue();
   void print() const;
+  bool is_empty() const;
 };
 
 void llQueue::Enqueue(string item){
@@ -31,13 +32,18 @@ void llQueue::Enqueue(string item){
   rear = temp;
 }
 
-void llQueue::Dequeue(){
-  if (front == NULL) return;
+string llQueue::Dequeue(){
+  if (front == NULL) {
+    cout << "No value to be dequeued \n";
+    exit(EXIT_FAILURE);
+  }
   cout << "dequeueing " << front->data << endl;
   qNode* temp = front;
+  string tempD = front->data;
   front = front->next;
   if (front == NULL) rear = NULL;
   delete(temp);
+  return tempD;
 }
 
 void llQueue::print() const {
@@ -46,4 +52,8 @@ void llQueue::print() const {
   cout << temp -> data << " ";
   temp = temp->next;
   }
+}
+
+bool llQueue::is_empty() const {
+  return front == NULL && rear == NULL;
 }
