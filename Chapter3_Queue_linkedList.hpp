@@ -18,6 +18,7 @@ public:
   llQueue() {front = rear = NULL;}
   void Enqueue(string);
   void Dequeue();
+  void print() const;
 };
 
 void llQueue::Enqueue(string item){
@@ -36,6 +37,13 @@ void llQueue::Dequeue(){
   qNode* temp = front;
   front = front->next;
   if (front == NULL) rear = NULL;
-
   delete(temp);
+}
+
+void llQueue::print() const {
+  qNode* temp = front;
+  while (temp != NULL) {
+  cout << temp -> data << " ";
+  temp = temp->next;
+  }
 }
