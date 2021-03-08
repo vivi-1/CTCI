@@ -95,7 +95,7 @@ cout << s2.peek() << " " << s2.stackIndex() << endl;
 //using two stacks.
 
 //Please check my Chapter3_MyQueue.hpp
-*/
+
 
 //Q3.5 Sort Stack: Write a program to sort a stack such that the smallest items
 //are on the top. You can use an additional temporary stack, but you may not
@@ -128,7 +128,7 @@ a.aDequeue();
 a.DequeueDog();
 a.print();
 
-
+*/
 
 
   return 0;
