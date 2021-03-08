@@ -5,7 +5,8 @@ using namespace std;
 #include "Chapter3_setOfStacks.hpp"
 #include "Chapter3_MyQueue.hpp"
 #include "Chapter3_Queue_arr.hpp"
-#include "Chapter3_Queue_linkedList.hpp"
+//#include "Chapter3_Queue_linkedList.hpp"
+#include "Chapter3_Adoption.hpp"
 
 int main(){
 /*
@@ -110,19 +111,23 @@ cout << s2.peek() << " " << s2.stackIndex() << endl;
 //would like. Create the data structures to maintain this system and implement
 //operations such as enqueue, dequeueAny, dequeueDog, and dequeueCat. You may
 //use the built-in LinkedList data structure.
-llQueue q;
-q.print();
-q.Enqueue("001");
-q.print();
-q.Enqueue("002");
-q.Enqueue("003");
-q.Enqueue("004");
-q.Enqueue("005");
-q.print();
-q.Dequeue();
-q.print();
-q.Dequeue();
-q.print();
+//Please check my Chapter3_Adoption.hpp, Chapter3_Queue_linkedList.hpp and
+//Chapter3_Queue_arr.hpp
+Animal a;
+a.aEnqueue("01", "Cat");
+a.aEnqueue("02", "Dog");
+a.aEnqueue("03", "Cat");
+a.aEnqueue("04", "Cat");
+a.aEnqueue("05", "Cat");
+a.aEnqueue("06", "Dog");
+a.aEnqueue("07", "Dog");
+a.print();
+a.aDequeue();
+a.print();
+a.aDequeue();
+a.DequeueDog();
+a.print();
+
 
 
 

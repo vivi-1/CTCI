@@ -8,21 +8,23 @@ public:
   Animal() = default;
 
   Animal(string s, string t) : ID(s), CatOrDog(t) {
-    if (t == "Cat") Cat.Enqueue(name());
-    if (t == "Dog") Dog.Enqueue(name());
-    All.Enqueue(name());}
+    if (t == "Cat") Cat.Enqueue(s,t);
+    if (t == "Dog") Dog.Enqueue(s,t);
+    All.Enqueue(s,t);}
   Animal(const Animal &);
-  ~Animal();
+
   llQueue Cat;
   llQueue Dog;
   llQueue All;
 
   string name() {return ID;}
   string type() {return CatOrDog;}
-  void aEnqueue(string);
+
+  void aEnqueue(string, string);
   string aDequeue();
   string DequeueCat();
   string DequeueDog();
+  void print();
 
 private:
   string ID;
@@ -31,17 +33,18 @@ private:
 
 };
 
-
 Animal::Animal(const Animal & a) {
   Cat = a.Cat;
   Dog = a.Dog;
   All = a.All;
 }
 
-void Animal::aEnqueue(string item){
-  if (type() == "Cat") Cat.Enqueue(name());
-  if (type() == "Dog") Dog.Enqueue(name());
-  All.Enqueue(name());
+void Animal::aEnqueue(string s, string t){
+  ID = s;
+  CatOrDog = t;
+  if (t == "Cat") Cat.Enqueue(s, t);
+  if (t == "Dog") Dog.Enqueue(s, t);
+  All.Enqueue(s, t);
 }
 
 string Animal::aDequeue(){
@@ -49,7 +52,12 @@ string Animal::aDequeue(){
     cout << "No animal to be dequeued \n";
     exit(EXIT_FAILURE);
   }
-  return All.Dequeue();
+  cout << "DequeueAll: \n";
+  vector<string> temp = All.peek();
+  All.Dequeue();
+  if (temp[1] == "Cat") Cat.Dequeue();
+  if (temp[1] == "Dog") Dog.Dequeue();
+  return temp[0];
 }
 
 string Animal::DequeueCat(){
@@ -57,7 +65,9 @@ string Animal::DequeueCat(){
     cout << "No cat to be dequeued \n";
     exit(EXIT_FAILURE);
   }
-  return Cat.Dequeue();
+  cout << "DequeueCat: \n";
+  All.findAndDeleteValue(Cat.peek()[0], Cat.peek()[1]);
+  return Cat.Dequeue()[0];
 }
 
 
@@ -66,5 +76,13 @@ string Animal::DequeueDog(){
     cout << "No dog to be dequeued \n";
     exit(EXIT_FAILURE);
   }
-  return Dog.Dequeue();
+  cout << "DequeueDog: \n";
+  return Dog.Dequeue()[0];
+}
+
+void Animal::print(){
+  cout << "Cat:\n";
+  Cat.print();
+  cout << "Dog:\n";
+  Dog.print();
 }
