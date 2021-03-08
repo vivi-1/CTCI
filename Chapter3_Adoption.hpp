@@ -29,8 +29,6 @@ public:
 private:
   string ID;
   string CatOrDog;
-  unsigned int age;
-
 };
 
 Animal::Animal(const Animal & a) {
