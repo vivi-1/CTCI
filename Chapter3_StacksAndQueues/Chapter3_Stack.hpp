@@ -9,6 +9,7 @@ class MyQueue;
 class stack {
   public:
     friend class MyQueue;
+    friend stack sort_smallTop (stack);
     stack() = default;
     stack(int);
     stack(const stack&);
@@ -26,6 +27,7 @@ class stack {
     int size() const;
     int min_element() const;
     void cleanContents();
+    void print()const;
 
     friend ostream& operator <<(ostream&, const stack&);
   private:
@@ -115,6 +117,23 @@ int stack::min_element() const{
 
 void stack::cleanContents() {
   while (!is_empty()) pop();
+}
+
+stack sort_smallTop(stack s) {
+  stack tempStack(s.maxsize);
+  while (!s.is_empty()) {
+    int tempElement = s.pop();
+    cout << tempElement << endl;
+    while(!tempStack.is_empty() && tempStack.peek() > tempElement) s.push(tempStack.pop());
+    tempStack.push(tempElement);
+  }
+  while (!tempStack.is_empty()) s.push(tempStack.pop());
+  return s;
+}
+
+void stack::print()const {
+  for (auto i = arr; i != arr + maxsize; ++i) cout << *i <<" ";
+  cout << endl;
 }
 
 #endif //  CHAPTER3_STACK__HPP
