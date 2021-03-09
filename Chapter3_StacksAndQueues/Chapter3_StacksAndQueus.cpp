@@ -19,10 +19,6 @@ int main(){
 //Stack "b" b[i] takes up position 1+3i in the array
 //Stack "c" c[i] takes up position 2+3i in the array
 
-//Flexible spaces for each stack:
-//
-
-
 //Q3.2 Stack Min: How would you design a stack which, in addition to push and
 //pop, has a function min which returns the minimum element? Push, pop and min
 //should all operate in 0(1) time.
