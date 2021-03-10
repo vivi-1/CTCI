@@ -5,6 +5,7 @@
 #include "Chapter2_HashTable.hpp"
 using namespace std;
 struct Node {
+
    int data;
    Node *next;
 };
@@ -17,6 +18,7 @@ public:
   void display();
   LinkedList removeDups();
   int size() {return count;}
+  void deleteNode(Node*);
 private:
   int count=0;
 };
@@ -67,20 +69,43 @@ void LinkedList::display(){
 }
 
 LinkedList LinkedList::removeDups(){
-  struct Node* temp = (struct Node*) malloc(sizeof(struct Node));
-  temp = head;
+  struct Node** temp = (struct Node**) malloc(sizeof(struct Node));
+  temp = &head;
   HashTable* ht= createTable(size());
   while (temp != NULL) {
-    if ((*ht).ht_search(temp->data) == 1) {
-      delete temp;
+    if ((*ht).ht_search((*temp)->data) == 1) {
+      deleteNode(*temp);
       count--;
     }
-    else (*ht).ht_insert(temp->data, 1);
-    temp = temp->next;
+    else (*ht).ht_insert((*temp)->data, 1);
+    *temp = (*temp)->next;
   }
   free_table(ht);
+  free(temp);
   return *this;
 }
 
+void LinkedList::deleteNode(Node* n){
+  if (head == n) {
+    if(head->next == NULL) {
+      cout << "There is only one node." << " The list can't be made empty ";
+      return;
+    }
+    head->data = head->next->data;
+    n = head->next;
+    head->next = head->next->next;
+    free(n);
+    return;
+  }
+  Node *prev = head;
+  while(prev->next != NULL && prev->next != n) prev = prev->next;
+  if(prev->next == NULL) {
+    cout << "\nGiven node is not present in Linked List";
+    return;
+  }
+  prev->next = prev->next->next;
+  free(n);
+  return;
+}
 
 #endif //CHAPTER2_LINKEDLIST_HPP
