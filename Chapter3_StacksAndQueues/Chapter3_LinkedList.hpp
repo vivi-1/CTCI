@@ -9,22 +9,25 @@ struct Node {
    Node(string i = " ");
 };
 
-struct Node* head = NULL;
-void insert(string new_data) {
-   struct Node* new_node = (struct Node*) malloc(sizeof(struct Node));
-   new_node->data = new_data;
-   new_node->next = head;
-   head = new_node;
-}
+class LinkedList{
+public:
+  LinkedList() = default;
+  struct Node* head = NULL;
+  void insert(string new_data) {
+    struct Node* new_node = (struct Node*) malloc(sizeof(struct Node));
+    new_node->data = new_data;
+    new_node->next = head;
+    head = new_node;
+  }
 
-void display() {
-   struct Node* ptr;
-   ptr = head;
-   while (ptr != NULL) {
-      cout<< ptr->data <<" ";
-      ptr = ptr->next;
-   }
-}
-
+  void display() {
+    struct Node* ptr;
+    ptr = head;
+    while (ptr != NULL) {
+        cout<< ptr->data <<" ";
+        ptr = ptr->next;
+      }
+  }
+};
 
 #endif //CHAPTER3_LINKEDLIST_HPP

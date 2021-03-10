@@ -75,7 +75,7 @@ s2.push(2);
 cout << s2.peek() << endl;
 s2.push(3);
 cout << s2.peek() << endl;
-if (!s2.currentS().is_full()) cout << s2.stackIndex() << "not full yet\n";
+if (!s2.currentS().is_full()) cout << s2.stackIndex() << "\nnot full yet\n";
 s2.pop();
 cout << s2.peek() << endl;
 s2.push(4);
@@ -89,6 +89,12 @@ cout << s2.peek() << " " << s2.stackIndex() << endl;
 //Q3.4 Queue via Stacks: Implement a MyQueue class which implements a queue
 //using two stacks.
 //Please check my Chapter3_MyQueue.hpp
+
+//Q3.5 Sort Stack: Write a program to sort a stack such that the smallest items
+//are on the top. You can use an additional temporary stack, but you may not
+//copy the elements into any other data structure (such as an array). The stack
+//supports the following operations: push, pop, peek, and isEmpty.
+//Please check the friend function:stack sort_smallTop(stack s) in Chapter3_Stack.hpp
 stack s3(5);
 s3.push(1);
 s3.push(2);
@@ -98,12 +104,6 @@ s3.push(5);
 s3.print();
 sort_smallTop(s3);
 s3.print();
-//Q3.5 Sort Stack: Write a program to sort a stack such that the smallest items
-//are on the top. You can use an additional temporary stack, but you may not
-//copy the elements into any other data structure (such as an array). The stack
-//supports the following operations: push, pop, peek, and isEmpty.
-//Please check the friend function:stack sort_smallTop(stack s) in Chapter3_Stack.hpp
-
 
 //Q3.6 Animal Shelter: An animal shelter, which holds only dogs and cats,
 //operates on a strictly"first in, first out" basis. People must adopt either

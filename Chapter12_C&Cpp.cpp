@@ -46,6 +46,7 @@ int main() {
 //Q12.1 Last K Lines: Write a method to print the last Klines of an input file
 //using C++.
 
+
 //Q12.2 implement a function void reverse(char * str) in C or C++ which reverses
 //a null-terminated string
 char cstring1[] = {"wei"};
@@ -65,6 +66,10 @@ cout << cstring1 << " " << cstring2  << " " << cstring3  << " " << cstring4 << e
 //map. How is a hash table implemented? If the number of inputs is small, which
 //data structure options can be used instead of a hash table?
 //Hash table vs Standard Template Library (STL)
+//STL is like tries, however, keys in tries only can be stored and processed digit
+//by digit or character by character.However, STL is designed to work with
+
+
 
 //Q12.4 Virtual Functions: How do virtual functions work in C++?
 
