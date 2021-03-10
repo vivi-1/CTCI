@@ -16,7 +16,7 @@ public:
   void insert_end(int);
   void insert_begining(int);
   void display();
-  LinkedList removeDups();
+  void removeDups();
   int size() {return count;}
   void deleteNode(Node*);
 private:
@@ -68,23 +68,6 @@ void LinkedList::display(){
   cout << endl;
 }
 
-LinkedList LinkedList::removeDups(){
-  struct Node** temp = (struct Node**) malloc(sizeof(struct Node));
-  temp = &head;
-  HashTable* ht= createTable(size());
-  while (temp != NULL) {
-    if ((*ht).ht_search((*temp)->data) == 1) {
-      deleteNode(*temp);
-      count--;
-    }
-    else (*ht).ht_insert((*temp)->data, 1);
-    *temp = (*temp)->next;
-  }
-  free_table(ht);
-  free(temp);
-  return *this;
-}
-
 void LinkedList::deleteNode(Node* n){
   if (head == n) {
     if(head->next == NULL) {
@@ -107,5 +90,24 @@ void LinkedList::deleteNode(Node* n){
   free(n);
   return;
 }
+
+void LinkedList::removeDups(){
+  cout << "Hello";
+  struct Node** temp = (struct Node**) malloc(sizeof(struct Node));
+  temp = &head;
+  cout << "HelloHello";
+  HashTable* ht= createTable(size());
+  while ((*temp) != NULL) {
+    if ((*ht).ht_search((*temp)->data) == 1) {
+      deleteNode(*temp);
+      count--;
+    }
+    else (*ht).ht_insert((*temp)->data, 1);
+    *temp = (*temp)->next;
+  }
+  free_table(ht);
+  free(temp);
+}
+
 
 #endif //CHAPTER2_LINKEDLIST_HPP

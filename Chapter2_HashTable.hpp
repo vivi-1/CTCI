@@ -4,17 +4,17 @@
 #include<vector>
 using namespace std;
 
-int hash_function(int* key) {return *key;}
+int hash_function(int key) {return key;}
 
 struct HashElements {
-  int* key;
-  int* value;
+  int key;
+  int value;
 };
 
 class HashTable{
 public:
   HashTable() = default;
-  HashElements** items;
+  HashElements* items;
   int size;
   int count;
   void ht_insert(int key, int value);
@@ -23,10 +23,10 @@ public:
   int ht_search(int key);
 };
 
-HashElements* createElements(int*key, int*value){
+HashElements* createElements(int key, int value){
   HashElements* element = (HashElements*)malloc(sizeof(HashElements));
-  element->key = (int*)malloc(sizeof(int));
-  element->value = (int*)malloc(sizeof(int));
+  // element->key = (int)malloc(sizeof(int));
+  // element->value = (int)malloc(sizeof(int));
   element->key = key;
   element->value = value;
   return element;
@@ -36,8 +36,10 @@ HashTable* createTable(int size) {
   HashTable* table = (HashTable*) malloc (sizeof(HashTable));
   table->size = size;
   table->count = 0;
-  table->items= (HashElements**) calloc (table->size, sizeof(HashElements*));
-  for (int i = 0; i< size; i++) table->items[i] = NULL;
+  table->items= (HashElements*) calloc (table->size, sizeof(HashElements*));
+  for (int i = 0; i< size; i++) {
+    (table->items[i]) = NULL;
+  }
   return table;
 }
 
@@ -51,8 +53,8 @@ void free_elements(HashElements* item) {
 void handle_collision(HashElements* item){}
 
 void HashTable::ht_insert(int key, int value){
-  int index = hash_function(&key);
-  HashElements* item = createElements(&key, &value);
+  int index = hash_function(key);
+  HashElements* item = createElements(key, value);
   HashElements* current = items[index];
   if (current == NULL){
     if (count == size){
@@ -64,7 +66,7 @@ void HashTable::ht_insert(int key, int value){
     count++;
   }
   else{
-    if (*current->key==key) *items[index]->value = value;
+    if ((*current)->key==key) *items[index]->value = value;
     else handle_collision(item);
   }
 }
