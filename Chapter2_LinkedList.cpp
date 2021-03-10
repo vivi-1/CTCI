@@ -13,6 +13,7 @@ l.insert_end(2);
 l.insert_end(3);
 l.insert_begining(-1);
 l.insert_begining(-2);
+l.insert_end(-2);
 l.display();
 
 

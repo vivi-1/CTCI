@@ -1,5 +1,5 @@
-// #ifndef CHAPTER2_LINKEDLIST_HPP
-// #define CHAPTER2_LINKEDLIST_HPP
+#ifndef CHAPTER2_LINKEDLIST_HPP
+#define CHAPTER2_LINKEDLIST_HPP
 #include <iostream>
 using namespace std;
 struct Node {
@@ -13,10 +13,15 @@ class LinkedList{
   void insert_end(int);
   void insert_begining(int);
   void display();
+  LinkedList removeDups();
 };
 
 void LinkedList::insert_end(int item) {
   struct Node* temp = (struct Node*) malloc(sizeof(struct Node));
+  //Allocates size bytes of uninitialized storage. Otherwise it will give bus error.
+  //which is a signal sent to an application if it attempts to access memory
+  //outside of its address space. This could be caused by using a bad pointer
+  //that has an invalid address in it.
   temp->data = item;
   temp->next = NULL;
   if(head == NULL) {
@@ -54,4 +59,11 @@ void LinkedList::display(){
   cout << endl;
 }
 
-// #endif //CHAPTER2_LINKEDLIST_HPP
+LinkedList LinkedList::removeDups(){
+  Node* temp = head;
+  while (temp != NULL) {
+
+  }
+}
+
+#endif //CHAPTER2_LINKEDLIST_HPP
