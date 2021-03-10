@@ -1,6 +1,8 @@
 #ifndef CHAPTER2_LINKEDLIST_HPP
 #define CHAPTER2_LINKEDLIST_HPP
 #include <iostream>
+#include <cstdlib>
+#include "Chapter2_HashTable.hpp"
 using namespace std;
 struct Node {
    int data;
@@ -8,12 +10,15 @@ struct Node {
 };
 
 class LinkedList{
-  public:
+public:
   Node* head = NULL, *tail = NULL;
   void insert_end(int);
   void insert_begining(int);
   void display();
   LinkedList removeDups();
+  int size() {return count;}
+private:
+  int count=0;
 };
 
 void LinkedList::insert_end(int item) {
@@ -33,6 +38,7 @@ void LinkedList::insert_end(int item) {
     tail->next = temp;
     tail = temp;
   }
+  count++;
 }
 
 void LinkedList::insert_begining(int item) {
@@ -48,6 +54,7 @@ void LinkedList::insert_begining(int item) {
     head = temp;
     temp = NULL;
   }
+  count++;
 }
 
 void LinkedList::display(){
@@ -60,10 +67,20 @@ void LinkedList::display(){
 }
 
 LinkedList LinkedList::removeDups(){
-  Node* temp = head;
+  struct Node* temp = (struct Node*) malloc(sizeof(struct Node));
+  temp = head;
+  HashTable* ht= createTable(size());
   while (temp != NULL) {
-
+    if ((*ht).ht_search(temp->data) == 1) {
+      delete temp;
+      count--;
+    }
+    else (*ht).ht_insert(temp->data, 1);
+    temp = temp->next;
   }
+  free_table(ht);
+  return *this;
 }
+
 
 #endif //CHAPTER2_LINKEDLIST_HPP
